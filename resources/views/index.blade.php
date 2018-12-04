@@ -9,7 +9,7 @@
   
   <div class="card-body">
     <div class="card-title">
-      {{ $date }}
+      {{ ucfirst($date) }}
       <h4>{{ $data->liveweer[0]->plaats }}</h4>
       <h5>{{ $data->liveweer[0]->verw }}</h5>
     </div>
