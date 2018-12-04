@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use Carbon\Carbon;
 
 class WeatherController extends Controller
 {
@@ -38,7 +39,9 @@ class WeatherController extends Controller
   
     $data = $response->getBody();
     $data = json_decode($data);
+    
+    $date = Carbon::now()->formatLocalized('%A %e %B %Y %H:%M');
   
-    return view('index', array('data' => $data));
+    return view('index', array('data' => $data), compact('date'));
   }
 }
