@@ -2,31 +2,57 @@
 
 @section('content')
 
+
+  
+  
+  
+  
+
 <div class="card">
   <div class="card-header">
-    <h1>Daily Weather</h1>
+    <h1>{{ ucfirst($date) }}</h1>
   </div>
   
   <div class="card-body">
+    <div class="card-text">
+      <form name="addres" id="addres" method="get" action="/">
+       <input type="text" name="plaats"/>
+       <input type="submit" class="btn"/>
+      </form>
+    </div>
     <div class="card-title">
-      {{ ucfirst($date) }}
+
       <h4>{{ $data->liveweer[0]->plaats }}</h4>
       <h5>{{ $data->liveweer[0]->verw }}</h5>
     </div>
     
     <div class="card-text">
-      <div class="d-flex flex-row">
-        <div class="p-2 d-flex align-items-end flex-column">
-          <img src="images/{{ $data->liveweer[0]->image }}.png"></img>
+      <div class="d-flex justify-content-center align-items-center">
+        <div class="p-2">
+          <img src="images/{{ $data->liveweer[0]->image }}.png" class="weather-img"></img>
         </div>
-        <div class="p-2 d-flex align-items-start flex-column element-center">
+        <div class="p-2 temperature">
           <p>{{ $data->liveweer[0]->temp }}°</p>
         </div>
       </div>
       <p>Windkracht: {{ $data->liveweer[0]->winds }}</p>
-      <p>Zonsopkomst: {{ $data->liveweer[0]->sup }}</p>
-      <p>Zonsondergang: {{ $data->liveweer[0]->sunder }}</p>
       <p>Windrichting: {{ $data->liveweer[0]->windr }}</p>
+      <div class="d-flex justify-content-center">
+        <div class="mr-5 p-2">
+          <img src="images/sunrise.png" class="sup-sunder"/>
+        </div>
+        <div class="ml-5 p-2">
+          <img src="images/sunset.png" class="sup-sunder"/>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div class="mr-5 p-2">
+          <p>{{ $data->liveweer[0]->sunder }}</p>
+        </div>
+        <div class="ml-5 p-2">
+          <p>{{ $data->liveweer[0]->sup }}</p>
+        </div>
+      </div>
     </div>
     
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
@@ -68,17 +94,12 @@
     background-size: cover;
   }
   
-  .flex-row {
-    height: 150px;
+  .sup-sunder {
+    width: 50px;
   }
   
-  .p-2 {
-    width: 350px;
-  }
-  
-  .element-center {
+  .temperature {
     font-size: 50px;
-    justify-content: center;
     margin-top: 10px;
   }
   
@@ -108,7 +129,7 @@
     color: white;
   }
   
-  .card-text img {
+  .weather-img {
     width: 150px;
     height: 150px;
   }
