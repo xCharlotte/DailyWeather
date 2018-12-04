@@ -13,6 +13,6 @@
 
 Route::get('weather', 'WeatherController@test');
 
-Route::get('/index', 'WeatherController@getWeatherData');
+Route::get('/', 'WeatherController@getWeatherData');
 
 
