@@ -15,11 +15,16 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+  <div id="nav">
+    <a href="#" data-toggle="modal" data-target="#info"><i class="fas fa-info-circle"></i></a>
+  </div>
     <div id="app">
         {{-- <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
@@ -41,6 +46,17 @@
         <main class="py-4">
             @yield('content')
         </main>
+    </div>
+    
+    
+    <div class="modal fade" id="info" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p>Made possible by KNMI Weergegevens via <a href="http://www.http://weerlive.nl/">Weerlive.nl</a></p>
+          </div>
+        </div>
+      </div>
     </div>
 </body>
 </html>
