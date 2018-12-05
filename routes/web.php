@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('weather', 'WeatherController@test');
-
 Route::get('/', 'WeatherController@getWeatherData');
 
 
