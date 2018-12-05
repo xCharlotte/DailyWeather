@@ -2,27 +2,19 @@
 
 @section('content')
 
-
-  
-  
-  
-  
-
 <div class="card">
   <div class="card-header">
     <h1>{{ ucfirst($date) }}</h1>
   </div>
   
   <div class="card-body">
-    <div class="card-text">
-      <form name="addres" id="addres" method="get" action="/">
-       <input type="text" name="plaats"/>
-       <input type="submit" class="btn"/>
-      </form>
-    </div>
     <div class="card-title">
 
-      <h4>{{ $data->liveweer[0]->plaats }}</h4>
+      <h4>{{ $data->liveweer[0]->plaats }} 
+        <a href="#" data-toggle="modal" data-target="#plaats">
+          <small><i class="fas fa-pencil-alt"></i></small>
+        </a>
+      </h4>
       <h5>{{ $data->liveweer[0]->verw }}</h5>
     </div>
     
@@ -38,19 +30,19 @@
       <p>Windkracht: {{ $data->liveweer[0]->winds }}</p>
       <p>Windrichting: {{ $data->liveweer[0]->windr }}</p>
       <div class="d-flex justify-content-center">
-        <div class="mr-5 p-2">
+        <div class="mr-3 p-2">
           <img src="images/sunrise.png" class="sup-sunder"/>
         </div>
-        <div class="ml-5 p-2">
+        <div class="ml-3 p-2">
           <img src="images/sunset.png" class="sup-sunder"/>
         </div>
       </div>
       <div class="d-flex justify-content-center">
-        <div class="mr-5 p-2">
-          <p>{{ $data->liveweer[0]->sunder }}</p>
-        </div>
-        <div class="ml-5 p-2">
+        <div class="mr-3 p-2">
           <p>{{ $data->liveweer[0]->sup }}</p>
+        </div>
+        <div class="ml-3 p-2">
+          <p>{{ $data->liveweer[0]->sunder }}</p>
         </div>
       </div>
     </div>
@@ -59,11 +51,25 @@
       Send to my Email</button>    
   </div>
 </div>
-<div class="container">
-  <span class="text">Made possible by KNMI Weergegevens via <a href="http://www.http://weerlive.nl/">Weerlive.nl</a></span>
+
+
+<!--- Modal for plaats -->
+<div class="modal fade" id="plaats" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="card-text">
+          <form name="addres" id="addres" method="get" action="/">
+           <input type="text" name="plaats"/>
+           <input type="submit" class="btn"/>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal for send me an email -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -110,23 +116,6 @@
     width: 50%;
     margin-top: 70px;
     opacity: .9;
-  }
-  
-  span {
-    float: right;
-    width: 50%;
-  }
-  
-  span a {
-    color: white;
-  }
-  
-  span a:hover {
-    color: #c1c1c1;
-  }
-  
-  .text {
-    color: white;
   }
   
   .weather-img {
