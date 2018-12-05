@@ -12,3 +12,8 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+#nav { position: fixed; right: 5px; top: 5px; font-size: 14px; line-height: 1;
+    color: hsla(0, 0%, 0%, 0.5); }
+#nav > div { display: inline-block; margin: 0 0 0 0.5em; }
+#nav .info img { width: 14px; height: 14px; opacity: 0.5; vertical-align: top; }
+#nav .info img:hover { opacity: 0.7; }
