@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Carbon\Carbon;
+use App\Mail\WeatherMail;
+use Mail;
 
 class WeatherController extends Controller
 {  
@@ -24,5 +26,13 @@ class WeatherController extends Controller
     $date = Carbon::now()->formatLocalized('%A %e %B %Y');
   
     return view('index', array('data' => $data), compact('date'));
+  }
+  
+  public function sendEmail(Request $request) {  
+    $email = $request->input('email');
+    $data = ['body' => 'This is a test!'];
+    
+    Mail::to($email)->send(new WeatherMail($data));
+    return redirect('/');
   }
 }

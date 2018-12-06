@@ -13,4 +13,6 @@
 
 Route::get('/', 'WeatherController@getWeatherData');
 
+Route::post('/sendemail', 'WeatherController@sendEmail');
+
 

@@ -79,13 +79,16 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <a href="#" class="btn btn-primary">Send now</a>
-      </div>
+      <form class="" action="/sendemail" method="post">
+        {{ csrf_field() }}
+        <div class="modal-body">
+          <input type="email" class="form-control" name="email" placeholder="Enter email">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Send now</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
