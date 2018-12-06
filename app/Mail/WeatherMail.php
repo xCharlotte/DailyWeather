@@ -11,35 +11,20 @@ class WeatherMail extends Mailable
 {
     use Queueable, SerializesModels;
     
-    public $data;
+    public $data; // Variable for the entire class
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct($data)
-    {
-      $this->data = $data;
+    public function __construct($data) { // Receive incoming variable data
+      $this->data = $data; // Set received data in class variable
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
-    public function build()
-    {
-      $address  = 'Charlottevoskuilen@hotmail.com';
-      $subject  = 'Dit is een test';
-      $name     = 'Charlotte';
+    public function build() {
+      $address  = 'info@dailyweather.nl';
+      $subject  = "Het weer van vandaag. 'Oant moarn!' ";
+      $name     = 'Daily Weather';
       
       return $this->view('mails.weather_email')
                   ->from($address, $name)
-                  ->cc($address, $name)
-                  ->bcc($address, $name)
-                  ->replyTo($address, $name)
                   ->subject($subject)
-                  ->with([ 'body' => $this->data['body'] ]);
+                  ->with([ 'data' => $this->data ]);
     }
 }
