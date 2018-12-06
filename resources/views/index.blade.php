@@ -81,6 +81,7 @@
       </div>
       <form class="" action="/sendemail" method="post">
         {{ csrf_field() }}
+        <input type="hidden" name="plaats" value="{{ $data->liveweer[0]->plaats }}">
         <div class="modal-body">
           <input type="email" class="form-control" name="email" placeholder="Enter email">
         </div>
