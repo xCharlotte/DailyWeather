@@ -9,8 +9,7 @@
   
   <div class="card-body">
     <div class="card-title">
-
-      <h4>{{ $data->liveweer[0]->plaats }} 
+      <h4>{{ $data->liveweer[0]->plaats }}
         <a href="#" data-toggle="modal" data-target="#plaats">
           <small><i class="fas fa-pencil-alt"></i></small>
         </a>
@@ -48,7 +47,7 @@
     </div>
     
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-      Send to my Email</button>    
+      Stuur naar mijn E-mail</button>    
   </div>
 </div>
 
@@ -60,8 +59,12 @@
       <div class="modal-body">
         <div class="card-text">
           <form name="addres" id="addres" method="get" action="/">
-           <input type="text" name="plaats"/>
-           <input type="submit" class="btn"/>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Voer de plaatsnaam in" name="plaats"/>
+              <div class="input-group-append">
+               <input type="submit" class="btn btn-primary"/>
+             </div>
+           </div>
           </form>
         </div>
       </div>
@@ -74,7 +77,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Send this weather report to your e-mail</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Ook zo'n leuk weerbericht ontvangen op de mail?</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -83,11 +86,11 @@
         {{ csrf_field() }}
         <input type="hidden" name="plaats" value="{{ $data->liveweer[0]->plaats }}">
         <div class="modal-body">
-          <input type="email" class="form-control" name="email" placeholder="Enter email">
+          <input type="email" class="form-control" name="email" placeholder="Jouw E-mail">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Send now</button>
+          <button type="submit" class="btn btn-primary">Verzenden</button>
         </div>
       </form>
     </div>
